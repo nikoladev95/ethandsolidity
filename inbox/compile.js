@@ -1,8 +1,8 @@
 const path = require('path');
-const fileSystem = require('fs');
-const solc = require('solc');
+const fs = require('fs'); // file system
+const solc = require('solc'); // solidity compiler
 
 const inboxPath = path.resolve(__dirname, 'contracts', 'Inbox.sol');
-const source = fileSystem.readFileSync(inboxPath, 'utf8');
+const source = fs.readFileSync(inboxPath, 'utf8');
 
 module.exports = solc.compile(source, 1).contracts[':Inbox'];
